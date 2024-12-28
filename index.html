@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LINE MIDリンク生成ツール</title>
+  <style>
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    input, button {
+      font-size: 1.2em;
+      padding: 10px;
+      margin: 5px;
+    }
+    a {
+      display: block;
+      margin-top: 10px;
+      font-size: 1.2em;
+      color: #1a73e8;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>LINE MIDリンク生成ツール</h1>
+  <input type="text" id="midInput" placeholder="MIDを入力してください" />
+  <button onclick="generateLink()">リンク生成</button>
+  <p id="instructions" style="display: none;">リンクをクリックするとLINEアプリで開きます。</p>
+  <a id="lineLink" href="#" target="_self" style="display: none;">LINEで開く</a>
+
+  <script>
+    //いんじすめ、殺す。
+    function generateLink() {
+      const midInput = document.getElementById('midInput').value.trim();
+      const lineLink = document.getElementById('lineLink');
+      const instructions = document.getElementById('instructions');
+
+      if (midInput) {
+        const link = `line://nv/profilePopup/mid=${midInput}`;
+        lineLink.href = link;
+        lineLink.textContent = 'LINEで開く';
+        lineLink.style.display = 'block';
+        instructions.style.display = 'block';
+      } else {
+        alert('MIDを入力してください');
+        lineLink.style.display = 'none';
+        instructions.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
