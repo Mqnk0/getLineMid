@@ -6,7 +6,7 @@
 
 ## デモページ
 このツールを試すには、以下のリンクを使用してください：  
-[LINE MIDリンク生成ツール]( )
+[LINE MIDリンク生成ツール](https://mqnk0.github.io/getLineMid)
 
 ---
 
